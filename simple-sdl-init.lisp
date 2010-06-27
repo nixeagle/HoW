@@ -10,7 +10,7 @@
     (sdl:window *game-frame-size-x* *game-frame-size-y*)
 
     (setf (sdl:frame-rate) 200)
-    (let ((house (load-image "house.bmp"))
+    (let ((house (load-image "house_64x64.bmp"))
           (dude (make-instance 'how.characters::actor
                                :surface (load-image "stickfigure_64x64.bmp")
                                :name "Igoru")))
