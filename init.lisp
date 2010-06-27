@@ -16,4 +16,12 @@ solves most issues.")
 (defvar *game-frame-size-y* 480
   "Y direction for the game's frame.")
 
+
+
+
+(defun load-image (name &key (directory +image-directory+))
+  "Load image NAME from `+image-directory+'."
+  (declare (string name))
+  (sdl:load-image (merge-pathnames name directory)))
+
 ;;; END

@@ -1,10 +1,5 @@
 (in-package :how)
 
-(defun load-image (name &key (directory +image-directory+))
-  "Load image NAME from `+image-directory+'."
-  (declare (string name))
-  (sdl:load-image (merge-pathnames name directory)))
-
 (defun start-sdl ()
   (sdl:with-init (sdl:sdl-init-video )
     (sdl:window *game-frame-size-x* *game-frame-size-y*)
