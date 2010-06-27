@@ -12,6 +12,14 @@
         (sdl:*default-surface* surface))
     (call-next-method)))
 
+(defmethod handle-key-down-event ((key (eql :sdl-key-escape)) (state t) &key)
+  "Leave the game!"
+  (sdl:push-quit-event))
+
+(defmethod handle-key-down-event (key state &key)
+  "If we don't handle the key, say something!"
+  (format t "No key-down event! Key: ~S State: ~S~%" key state))
+
 (defun start-how ()
   (sdl:with-init (sdl:sdl-init-video )
     (sdl:window *game-frame-size-x* *game-frame-size-y*)
