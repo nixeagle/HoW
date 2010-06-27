@@ -7,6 +7,7 @@
             :depends-on ("init")
             :components
             ((:file "image")
-             (:file "health" :depends-on ("image"))
+	     (:file "sprite" :depends-on ("image"))
+             (:file "health" :depends-on ("sprite"))
              (:file "actor" :depends-on ("health"))))
    (:file "simple-sdl-init" :depends-on (#:src))))

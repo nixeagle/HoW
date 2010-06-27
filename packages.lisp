@@ -6,6 +6,9 @@
 (defpackage #:how.characters
   (:use :cl))
 
+(defpackage #:how.sprite
+  (:use :cl))
+
 (defpackage #:how.health
   (:use :cl)
   (:export #:health))
