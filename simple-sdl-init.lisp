@@ -64,6 +64,7 @@
                      t)
 	(:key-repeat-on)
 	(:key-down-event (:key key)
+                         (sdl:clear-display sdl:*green*)
                          (handle-key-down-event key t)
                          (when (sdl:key= key :sdl-key-up) (setf dude-position-y (- dude-position-y 1)))
 			 (when (sdl:key= key :sdl-key-down) (setf dude-position-y (+ dude-position-y 1)))
