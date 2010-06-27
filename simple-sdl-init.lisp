@@ -11,9 +11,8 @@
 			       :name "Igoru"))
 	  (dude-position-x 0)
 	  (dude-position-y 0))
-
       (sdl:with-events ()
-	(:quit-event () (setf some-debug-stuff (list (sdl::width house) (sdl::height house))) t)
+	(:quit-event () t)
 	(:key-repeat-on)
 	(:key-down-event (:key key)
 			 (when (sdl:key= key :sdl-key-q) (sdl:push-quit-event))

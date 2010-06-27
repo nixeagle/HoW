@@ -29,7 +29,8 @@ solves most issues.")
                                          collect (list cell-x cell-y x y))))
 (defun load-sprite-sheet (sprite-sheet x y)
   "Set the cells for a sprite sheet at `sdl:cells' using `generate-cells'"
-  (setf (sdl:cells sprite-sheet) (generate-cells x y (sdl:width sprite-sheet) (sdl:height sprite-sheet))))
+  (setf (sdl:cells sprite-sheet) (generate-cells x y (sdl:width sprite-sheet) (sdl:height sprite-sheet)))
+  (values sprite-sheet))
 
 (defun set-sprite-sheet (sprite-sheet x y cell)
   "draw surface for a sprite sheet"
