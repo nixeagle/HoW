@@ -7,7 +7,7 @@
     (setf (sdl:frame-rate) 200)
     (let ((house (load-image "house_64x64.bmp"))
           (dude (make-instance 'how.characters::actor
-                               :surface (load-image "stickfigure_64x64.bmp")
+                               :surface (load-image "stickfigure_48x48.bmp")
                                :name "Igoru")))
       (sdl:with-events ()
         (:quit-event ()
