@@ -7,4 +7,5 @@
   (:use :cl))
 
 (defpackage #:how.health
-  (:use :cl))
+  (:use :cl)
+  (:export #:health))
