@@ -13,7 +13,10 @@
     (let ((house (load-image "house.bmp"))
           (dude (load-image "stickfigure.bmp")))
       (sdl:with-events ()
-        (:quit-event () t)
+        (:quit-event ()
+                     (sdl:save-image sdl:*default-display*
+                                     (merge-pathnames #P"last-surface.bmp" +root-directory+))
+                     t)
         (:key-down-event ()
                          (sdl:push-quit-event))
         (:mouse-motion-event (:x x :y y)
