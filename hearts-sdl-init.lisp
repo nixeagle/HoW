@@ -22,5 +22,5 @@
 			 (when (sdl:key= key :sdl-key-4) (setf hearts-cell 3))
 			 (when (sdl:key= key :sdl-key-5) (setf hearts-cell 4)))
 	(:idle ()
-	       (how.sprite::draw-sprite-sheet-at hearts :x 10 :y 10 :cell 4)
+	       (how.sprite::draw-sprite-sheet-at hearts :x 10 :y 10 :cell hearts-cell)
 	       (sdl:update-display))))))
