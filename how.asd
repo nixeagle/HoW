@@ -6,7 +6,8 @@
    (:module #:src
             :depends-on ("init")
             :components
-            ((:file "image")
+            ((:file "key-events")
+	     (:file "image")
 	     (:file "sprite" :depends-on ("image"))
              (:file "health" :depends-on ("sprite"))
              (:file "actor" :depends-on ("health"))))
