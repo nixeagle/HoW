@@ -23,7 +23,7 @@
 (defun start-how ()
   (sdl:with-init (sdl:sdl-init-video )
     (sdl:window *game-frame-size-x* *game-frame-size-y*)
-    (setf (sdl:frame-rate) 200)
+    (setf (sdl:frame-rate) 60)
     (sdl:enable-key-repeat nil nil)
     (let ((house (load-image "house_64x64.bmp"))
 	  (dude (make-instance 'how.characters::actor
