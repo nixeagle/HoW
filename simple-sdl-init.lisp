@@ -11,7 +11,9 @@
 
     (setf (sdl:frame-rate) 200)
     (let ((house (load-image "house.bmp"))
-          (dude (load-image "stickfigure.bmp")))
+          (dude (make-instance 'how.characters::actor
+                               :surface (load-image "stickfigure.bmp")
+                               :name "Igoru")))
       (sdl:with-events ()
         (:quit-event ()
                      (sdl:save-image sdl:*default-display*
@@ -22,7 +24,8 @@
         (:mouse-motion-event (:x x :y y)
                              (sdl:clear-display sdl:*black*)
                              (sdl:draw-surface-at-* house 100 100)
-                             (sdl:draw-surface-at-* dude x y))
+                             (sdl:draw-surface-at-* (how.characters::surface dude)
+                                                    x y))
         (:idle ()
                (sdl:update-display))))))
 
