@@ -32,7 +32,7 @@ solves most issues.")
   (setf (sdl:cells sprite-sheet) (generate-cells x y (sdl:width sprite-sheet) (sdl:height sprite-sheet)))
   (values sprite-sheet))
 
-(defun set-sprite-sheet (sprite-sheet x y cell)
+(defun draw-sprite-sheet-at (sprite-sheet x y cell)
   "draw surface for a sprite sheet"
   (sdl:draw-surface-at sprite-sheet (apply #'vector (list x y)) :cell cell))
 
