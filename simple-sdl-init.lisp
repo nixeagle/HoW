@@ -4,6 +4,14 @@
     (key state &key &allow-other-keys)
   (:documentation "Handle key down presses."))
 
+(defmethod handle-key-down-event :around
+    ((key t) (state t) &key (surface sdl:*default-surface*)
+     (display sdl:*default-display*))
+  "Bind display and surface before calling onwards."
+  (let ((sdl:*default-display* display)
+        (sdl:*default-surface* surface))
+    (call-next-method)))
+
 (defun start-how ()
   (sdl:with-init (sdl:sdl-init-video )
     (sdl:window *game-frame-size-x* *game-frame-size-y*)
