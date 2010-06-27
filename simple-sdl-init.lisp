@@ -1,13 +1,5 @@
 (in-package :how)
 
-(defvar +root-directory+
-  (asdf:system-relative-pathname (asdf:find-system :nisp.i) "/")
-  "The root of where the asdf source is at.
-
-We use this for locating data and configuration information for
-nisp.i. This may run nto some issues in the future but for the near term
-future this solves most issues.")
-
 (defun start-sdl ()
   (sdl:with-init (sdl:sdl-init-video )
     (sdl:window 320 240)
