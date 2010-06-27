@@ -1,0 +1,5 @@
+* Tasks.org
+** TODO make frameset tools
+** TODO make magenta(or any other color we decide to use) a "alpha" effect(make it go *POOF*)
+** TODO figure out how to make sprites translucent (ie for taken-away hearts)
+** TODO learn blender3d =P
