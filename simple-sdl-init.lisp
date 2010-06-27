@@ -11,6 +11,7 @@
 			       :name "Igoru"))
 	  (dude-position-x 0)
 	  (dude-position-y 0))
+
       (sdl:with-events ()
 	(:quit-event () t)
 	(:key-repeat-on)
