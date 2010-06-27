@@ -1,5 +1,9 @@
 (in-package :how)
 
+(defgeneric handle-key-down-event
+    (key state &key &allow-other-keys)
+  (:documentation "Handle key down presses."))
+
 (defun start-how ()
   (sdl:with-init (sdl:sdl-init-video )
     (sdl:window *game-frame-size-x* *game-frame-size-y*)
