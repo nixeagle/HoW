@@ -45,6 +45,7 @@
       (sdl:with-events ()
 	(:quit-event () t)
 	(:key-down-event (:key key)
+                         (how.health::draw-health-at* (make-instance 'how.health::health :current 14 :maximum 20) :y 0 :x (- *game-frame-size-x* (* 10 how.health::*heart-image-side-length*)))
 			 (when (sdl:key= key :sdl-key-q) (sdl:push-quit-event))
 			 (when (sdl:key= key :sdl-key-up) (setf dude-position-y (- dude-position-y 1)))
 			 (when (sdl:key= key :sdl-key-down) (setf dude-position-y (+ dude-position-y 1)))
