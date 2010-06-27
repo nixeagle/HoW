@@ -1,5 +1,5 @@
 (defpackage #:how
-  (:use :cl :lispbuilder-sdl))
+  (:use :cl))
 
 (in-package :how)
 
