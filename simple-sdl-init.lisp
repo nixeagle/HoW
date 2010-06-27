@@ -7,6 +7,7 @@
   (sdl:with-init (sdl:sdl-init-video )
     (sdl:window 320 240)
     (sdl:draw-line (sdl:point) (sdl:point :x 100 :y 100))
+    (sdl:draw-rectangle (sdl:rectangle :w 10 :h 10))
     (let ((counter 0)
 	  (horizontal 0)
 	  (vertical 0))
@@ -18,9 +19,14 @@
 					(sdl:point :x 0 :y 33))
 			 (incf counter)
 			 (when (= counter 2) (sdl:push-quit-event)))
+        (:mouse-motion-event (:x x :y y)
+                             (sdl:clear-display sdl:*black*)
+                             (sdl:draw-box-* x y 50 50))
 	(:idle ()
 	       (sdl:draw-pixel (sdl:point :x (incf horizontal) :y vertical))
 	       (when (= horizontal 320)
 		 (incf vertical)
 		 (setq horizontal 0))
 	       (sdl:update-display))))))
+
+;;; END
