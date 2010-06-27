@@ -1,6 +1,3 @@
-(defpackage #:how.characters
-  (:use :cl))
-
 (in-package :how.characters)
 
 (defclass actor ()
