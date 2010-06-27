@@ -76,7 +76,7 @@
                          (handle-key-down-event key :fire)
 
                          (how.health::draw-health-at-* (make-instance 'how.health::health :current 14 :maximum 20)
-                                                       (- *game-frame-size-x* (* 10 how.health::*heart-image-side-length*))
+                                                       (- *game-frame-size-x* (* 5 how.health::*heart-image-side-length*))
                                                        0))
 
 	(:idle ()
