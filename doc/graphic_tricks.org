@@ -1,0 +1,6 @@
+* Graphic tricks
+** Antialiasing, basically, you just move a image and make it shake really fast so it looks like it's perfectly round. Just a really simple definition =P
+
+** Magenta, color everthing you want in a image to be invisible, magenta. Just hide all magenta colors(R 255, G 000, B 255)
+
+** Say you want a cycling image of 3 frames, such as, taking footsteps. each one is 64x64. Make the image 64x192, and show only one 64x64 square at a time.
