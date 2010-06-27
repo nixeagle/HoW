@@ -6,5 +6,6 @@
    (:module #:src
             :depends-on ("init")
             :components
-            ((:file "actor")))
+            ((:file "health")
+             (:file "actor" :depends-on ("health"))))
    (:file "simple-sdl-init" :depends-on (#:src))))
