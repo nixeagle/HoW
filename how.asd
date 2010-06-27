@@ -10,4 +10,5 @@
 	     (:file "sprite" :depends-on ("image"))
              (:file "health" :depends-on ("sprite"))
              (:file "actor" :depends-on ("health"))))
-   (:file "simple-sdl-init" :depends-on (#:src))))
+   (:file "simple-sdl-init" :depends-on (#:src))
+   (:file "hearts-sdl-init" :depends-on (#:src))))
