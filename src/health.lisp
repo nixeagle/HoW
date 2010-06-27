@@ -22,7 +22,7 @@
    (units :type (integer 0 12)
           :initarg :units
           :accessor health-units
-          :initform +unit-half-heart+))
+          :initform +unit-quarter-heart+))
   (:documentation "Information on actor health."))
 
 (defun %heart-count (maximum current units)
@@ -39,15 +39,32 @@ Max count is returned as the second value from this function."
     (%heart-count maximum current units)))
 
 (defmethod draw-health-at* ((object health)
-                        &key (heart-size *heart-image-side-length*)
-                        (x 0) (y 0) (surface sdl:*default-surface*))
+                            &key (heart-size *heart-image-side-length*)
+                            (x 0) (y 0) (surface sdl:*default-surface*))
   "Draw a surface with health."
   (multiple-value-bind (current max) (heart-count object)
     (let ((surf (sdl:create-surface (* heart-size max) heart-size)))
       (loop for i from 1 to (heart-count object)
-        do (sdl:draw-surface-at-* (how::load-image "full_heart_32x32.bmp")
-                                  (* heart-size (1- i)) 0 :surface surf))
-     (sdl:draw-surface-at-* surf x y :surface surface)
-     surf)))
+         do (sdl:draw-surface-at-* (how::load-image "full_heart_32x32.bmp")
+                                   (* heart-size (1- i)) 0 :surface surf))
+      (sdl:draw-surface-at-* surf x y :surface surface)
+      surf)))
+
+(defun draw-full-heart-at-* (x &key (y 0)
+                             (surface sdl:*default-surface*))
+  (how.sprite::draw-sprite-sheet-at-*
+   (how.sprite::load-sprite-sheet (how::load-image "hearts_32x32.bmp") :x 32 :y 32)
+   x y :surface surface :cell 4))
+
+(defmethod draw-health-at-* ((object health) x y
+                             &key (heart-size *heart-image-side-length*)
+                             (surface sdl:*default-surface*))
+  "Draw a surface with health."
+  (multiple-value-bind (current max) (heart-count object)
+    (let ((surf (sdl:create-surface (* heart-size max) heart-size)))
+      (loop for i from 1 to (heart-count object)
+         do (draw-full-heart-at-* (* heart-size (1- i)) :surface surf))
+      (sdl:draw-surface-at-* surf x y :surface surface)
+      surf)))
 
 ;;; END
