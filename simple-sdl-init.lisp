@@ -72,15 +72,12 @@
                          (sdl:draw-surface-at-* house 100 100)
                          (sdl:draw-surface-at-* (how.characters::surface dude)
                                                 dude-position-x dude-position-y)
-			 (sdl:clear-display sdl:*green*)
-			 (sdl:draw-surface-at-* house 100 100)
-			 (sdl:draw-surface-at-* (how.characters::surface dude)
-						dude-position-x dude-position-y)
-			 (handle-key-down-event key :fire)
-			 (how.health::draw-health-at* (make-instance 'how.health::health :current 14 :maximum 20)
-						      :y 0 :x (- *game-frame-size-x* (* 10 how.health::*heart-image-side-length*)))
-			 (how.health::draw-health-at* (make-instance 'how.health::health :current 14 :maximum 20)
-						      :y 0 :x (- *game-frame-size-x* (* 10 how.health::*heart-image-side-length*))))
+                         (handle-key-down-event key :fire)
+
+                         (how.health::draw-health-at-* (make-instance 'how.health::health :current 14 :maximum 20)
+                                                       (- *game-frame-size-x* (* 10 how.health::*heart-image-side-length*))
+                                                       0))
+
 	(:idle ()
 	       (sdl:update-display))))))
 ;;; END
