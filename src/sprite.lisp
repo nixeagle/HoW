@@ -13,3 +13,9 @@
 (defun draw-sprite-sheet-at (sprite-sheet &key x y cell)
   "draw surface for a sprite sheet"
   (sdl:draw-surface-at sprite-sheet (apply #'vector (list x y)) :cell cell))
+
+(defun draw-sprite-sheet-at-* (sprite-sheet x y &key cell
+                              (surface sdl:*default-surface*))
+  "draw surface for a sprite sheet"
+  (declare ((integer 0 #.most-positive-fixnum) x y))
+  (sdl:draw-surface-at-* sprite-sheet x y :cell cell :surface surface))
