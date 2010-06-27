@@ -7,3 +7,6 @@
 We use this for locating data and configuration information for HoW. This
 may run into some issues in the future but for the near term future this
 solves most issues.")
+
+(defvar +image-directory+
+  (merge-pathnames #P"images/" +root-directory+))
