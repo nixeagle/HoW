@@ -12,11 +12,25 @@
         (sdl:*default-surface* surface))
     (call-next-method)))
 
-(defmethod handle-key-down-event ((key (eql :sdl-key-escape)) (state t) &key)
+(defgeneric optional-arg-form (input &key gensym-name))
+(defmethod optional-arg-form ((input (eql nil)) &key (gensym-name "G"))
+  `(,(gensym gensym-name) t))
+(defmethod optional-arg-form ((input symbol) &key (gensym-name "G"))
+  `(,(gensym gensym-name) (eql ,input)))
+(defmethod optional-arg-form ((input list) &key (gensym-name "G"))
+  (declare (ignore gensym-name))
+  input)
+
+(defmacro define-key-down-event ((key &optional state &rest keys) &body body)
+  `(defmethod handle-key-down-event
+       (,(optional-arg-form key :gensym-name "KEY-")
+        ,(optional-arg-form state :gensym-name "STATE-") &key ,@keys)
+     ,@body))
+
+(define-key-down-event (:sdl-key-escape)
   "Leave the game!"
   (sdl:push-quit-event))
-
-(defmethod handle-key-down-event (key state &key)
+(define-key-down-event ((key t) (state t))
   "If we don't handle the key, say something!"
   (format t "No key-down event! Key: ~S State: ~S~%" key state))
 
