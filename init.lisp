@@ -10,3 +10,10 @@ solves most issues.")
 
 (defvar +image-directory+
   (merge-pathnames #P"images/" +root-directory+))
+
+(defvar *game-frame-size-x* 640
+  "X direction for the game's frame.")
+(defvar *game-frame-size-y* 480
+  "Y direction for the game's frame.")
+
+;;; END

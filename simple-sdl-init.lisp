@@ -7,7 +7,7 @@
 
 (defun start-sdl ()
   (sdl:with-init (sdl:sdl-init-video )
-    (sdl:window 320 240)
+    (sdl:window *game-frame-size-x* *game-frame-size-y*)
 
     (setf (sdl:frame-rate) 200)
     (let ((house (load-image "house.bmp"))
