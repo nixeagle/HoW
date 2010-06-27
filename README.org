@@ -1,0 +1,32 @@
+* Setup
+*** Lift
+    This library is buggy as far as the current one on
+    asdf-install/clwiki. For now clone a bug free copy of lift from
+    nixeagle/lift.
+
+    : cd ~/lisp
+    : git clone git://github.com/nixeagle/lift.git
+
+    Now to make an asdf symlink assuming you have =~/lift/asdf/= in your
+    =asdf:*central-registry*=
+    : cd ~/lisp/asdf
+    : ln -s ../lift/lift.asd .
+
+    A quick aside for those that don't have asdf setup in their =.sbclrc=,
+    make sure that file exists by editing =~/.sbclrc=, and add to that
+    file the following lines:
+
+    : (require :asdf-install)
+    : (pushnew "/home/<username>/lisp/asdf/" asdf:*central-registry*)
+
+    That will allow sbcl to find all libraries that have a symlinked .asd
+    file in ~/lisp/asdf. You will need this setup later on to symlink to
+    HoW's .asd file as well.
+
+*** How
+  - Get lispbuilder-sdl: =(asdf-install:install :lispbuilder-sdl)=
+  - cd: =cd ~/lisp/=
+  - Clone: =git clone git://github.com/nixeagle/HoW.git=
+  - symlink: =cd asdf && ln -s ../HoW/how.asd .=
+  - Require: =(require :how)=
+  - Enjoy!
