@@ -20,6 +20,7 @@ solves most issues.")
 (defun load-image (name &key (directory +image-directory+) (color-key (sdl:color :r 255 :g 0 :b 255)))
   "Load image NAME from `+image-directory+'."
   (declare (string name))
+<<<<<<< HEAD
   (sdl:load-image (merge-pathnames name directory) :color-key color-key))
 
 (defun generate-cells (x y width height)
@@ -34,5 +35,8 @@ solves most issues.")
 (defun set-sprite-set (sprite-sheet x y cell)
   "draw surface for a sprite sheet"
   (sdl:draw-surface-at sprite-sheet (apply #'vector (list x y)) :cell cell))
+=======
+  (sdl:load-image (merge-pathnames name directory) :color-key (sdl:color :r 255 :g 0 :b 255)))
+>>>>>>> e8c1bb5faf1bf00a3cf06ebe1bd4a9a125b82c41
 
 ;;; END
