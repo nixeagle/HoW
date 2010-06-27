@@ -20,8 +20,11 @@
                              (sdl:clear-display sdl:*green*)
                              (sdl:draw-surface-at-* house 100 100)
                              (sdl:draw-surface-at-* (how.characters::surface dude)
-                                                    x y))
+                                                    x y)
+                             (how.health::draw-health-at* (make-instance 'how.health::health :current 14 :maximum 20) :y 0 :x (- *game-frame-size-x* (* 10 how.health::*heart-image-side-length*))))
         (:idle ()
                (sdl:update-display))))))
+
+
 
 ;;; END
