@@ -2,9 +2,10 @@
 
 (defun generate-cells (x y width height)
   "Generate a cell list for use with sprite sheets"
-  (loop for cell-y from 0 to (- width y) by y
-                            append (loop for cell-x from 0 to (- height x) by x
+  (loop for cell-y from 0 to (- height y) by y
+                            append (loop for cell-x from 0 to (- width x) by x
                                          collect (list cell-x cell-y x y))))
+
 (defun load-sprite-sheet (sprite-sheet &key x y)
   "Set the cells for a sprite sheet at `sdl:cells' using `generate-cells' returning sprite-sheet"
   (setf (sdl:cells sprite-sheet) (generate-cells x y (sdl:width sprite-sheet) (sdl:height sprite-sheet)))
