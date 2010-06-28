@@ -30,6 +30,3 @@
 (define-key-down-event (:sdl-key-escape)
   "Leave the game!"
   (sdl:push-quit-event))
-(define-key-down-event ((key t) (state t))
-  "If we don't handle the key, say something!"
-  (format t "No key-down event! Key: ~S State: ~S~%" key state))
