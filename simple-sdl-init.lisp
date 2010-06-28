@@ -56,7 +56,7 @@
     (draw-fire cell))
 (define-key-down-event ((key t) (state t))
   "If we don't handle the key, say something!"
-  (values (format t "No key-down event! Key: ~S State: ~S~%" key state))
+  (if (not state) (values (format t "No key-down event! Key: ~S State: ~S~%" key state)))
   (draw-fire cell)))
 
 (defun start-how ()
