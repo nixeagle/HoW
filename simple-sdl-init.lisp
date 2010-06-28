@@ -54,10 +54,10 @@
   (define-key-down-event (:sdl-key-y :fire)
     (setf cell 15)
     (draw-fire cell))
-(define-key-down-event ((key t) (state t))
-  "If we don't handle the key, say something!"
-  (if (not state) (values (format t "No key-down event! Key: ~S State: ~S~%" key state)))
-  (draw-fire cell)))
+  (define-key-down-event ((key t) (state t))
+    "If we don't handle the key, say something!"
+    (values (format t "Key: ~S State: ~S~%" key state))
+    (draw-fire cell)))
 
 (defun start-how ()
   (sdl:with-init (sdl:sdl-init-video )
