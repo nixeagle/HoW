@@ -62,7 +62,7 @@ Max count is returned as the second value from this function."
   "Draw a surface with health."
   (multiple-value-bind (current max) (heart-count object)
     (let ((surf (sdl:create-surface (* heart-size max) heart-size)))
-      (loop for i from 1 to (heart-count object)
+      (loop for i from (1+ (- max current)) to max
          do (draw-full-heart-at-* (* heart-size (1- i)) :surface surf))
       (sdl:draw-surface-at-* surf x y :surface surface)
       surf)))
