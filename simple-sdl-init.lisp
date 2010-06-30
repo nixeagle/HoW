@@ -65,7 +65,7 @@
     (sdl:enable-key-repeat nil nil)
     (let ((house (load-image "house_64x64.bmp"))
 	  (dude (make-instance 'how.characters::actor
-			       :surface (load-image "stickfigure_64x64.bmp")
+			       :surface (load-image "dude_64x64.bmp")
 			       :name "Igoru"))
 	  (dude-position-x 0)
 	  (dude-position-y 0))
