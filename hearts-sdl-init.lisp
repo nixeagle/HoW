@@ -8,7 +8,7 @@
     (let ((hearts (how.sprite::load-sprite-sheet (load-image "hearts_32x32.bmp") :x 32 :y 32))
 	  (hearts-cell 0))
       (sdl:clear-display sdl:*black*)
-      (how.sprite::draw-sprite-sheet-at hearts :x 10 :y 10 :cell hearts-cell)
+      (how.sprite::draw-sprite-sheet-at-* hearts 10 10 :cell hearts-cell)
 
       (sdl:with-events ()
         (:quit-event () t)
@@ -22,5 +22,5 @@
 			 (when (sdl:key= key :sdl-key-5) (setf hearts-cell 4)))
 	(:idle ()
 	       (sdl:clear-display sdl:*black*)
-	       (how.sprite::draw-sprite-sheet-at hearts :x 10 :y 10 :cell hearts-cell)
+	       (how.sprite::draw-sprite-sheet-at-* hearts 10 10 :cell hearts-cell)
 	       (sdl:update-display))))))

@@ -2,7 +2,7 @@
 
 (let (fire (cell 0))
   (defun draw-fire (cell &key (x 30) (y 30))
-    (how.sprite::draw-sprite-sheet-at fire :x x :y y :cell cell))
+    (how.sprite::draw-sprite-sheet-at-* fire x y :cell cell))
   (defmethod handle-key-down-event :before ((key t) (state (eql :fire)) &key)
     (or fire (progn (setq fire (how.sprite::load-sprite-sheet (load-image "ani2.bmp") :x 64 :y 64)) fire)))
   (define-key-down-event (:sdl-key-1 :fire)

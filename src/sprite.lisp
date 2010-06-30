@@ -11,10 +11,10 @@
   (setf (sdl:cells sprite-sheet) (generate-cells x y (sdl:width sprite-sheet) (sdl:height sprite-sheet)))
   (values sprite-sheet))
 
-(defun draw-sprite-sheet-at (sprite-sheet &key x y cell
+(defun draw-sprite-sheet-at (sprite-sheet point &key cell
                              (surface sdl:*default-surface*))
   "draw surface for a sprite sheet"
-  (sdl:draw-surface-at sprite-sheet (apply #'vector (list x y)) :cell cell
+  (sdl:draw-surface-at sprite-sheet point :cell cell
                        :surface surface))
 
 (defun draw-sprite-sheet-at-* (sprite-sheet x y &key cell
