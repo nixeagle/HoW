@@ -38,18 +38,6 @@ Max count is returned as the second value from this function."
   (with-slots (maximum current units) object
     (%heart-count maximum current units)))
 
-(defmethod draw-health-at* ((object health)
-                            &key (heart-size *heart-image-side-length*)
-                            (x 0) (y 0) (surface sdl:*default-surface*))
-  "Draw a surface with health."
-  (multiple-value-bind (current max) (heart-count object)
-    (let ((surf (sdl:create-surface (* heart-size max) heart-size :color-key (sdl:color :r 0 :b 0 :g 0))))
-      (loop for i from 1 to (heart-count object)
-         do (sdl:draw-surface-at-* (how::load-image "full_heart_32x32.bmp")
-                                   (* heart-size (1- i)) 0 :surface surf))
-      (sdl:draw-surface-at-* surf x y :surface surface)
-      surf)))
-
 (defun draw-full-heart-at-* (x &key (y 0)
                              (surface sdl:*default-surface*))
   (how.sprite::draw-sprite-sheet-at-*
