@@ -12,14 +12,15 @@
         (sdl:*default-surface* surface))
     (call-next-method)))
 
-(defgeneric optional-arg-form (input &key gensym-name))
-(defmethod optional-arg-form ((input (eql nil)) &key (gensym-name "G"))
-  `(,(gensym gensym-name) t))
-(defmethod optional-arg-form ((input symbol) &key (gensym-name "G"))
-  `(,(gensym gensym-name) (eql ,input)))
-(defmethod optional-arg-form ((input list) &key (gensym-name "G"))
-  (declare (ignore gensym-name))
-  input)
+(nutils:eval-always
+  (defgeneric optional-arg-form (input &key gensym-name))
+  (defmethod optional-arg-form ((input (eql nil)) &key (gensym-name "G"))
+    `(,(gensym gensym-name) t))
+  (defmethod optional-arg-form ((input symbol) &key (gensym-name "G"))
+    `(,(gensym gensym-name) (eql ,input)))
+  (defmethod optional-arg-form ((input list) &key (gensym-name "G"))
+    (declare (ignore gensym-name))
+    input))
 
 (defmacro define-key-down-event ((key &optional state &rest keys) &body body)
   `(defmethod handle-key-down-event
