@@ -27,6 +27,8 @@
   - Get lispbuilder-sdl: =(asdf-install:install :lispbuilder-sdl)=
   - cd: =cd ~/lisp/=
   - Clone: =git clone git://github.com/nixeagle/HoW.git=
+  - Clone nutils: =git clone git://github.com/nixeagle/nutils.git=
   - symlink: =cd asdf && ln -s ../HoW/how.asd .=
+  - symlink nutils: =ln -s ../nutils/nutils.asd .=
   - Require: =(require :how)=
   - Enjoy!
