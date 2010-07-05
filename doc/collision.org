@@ -1,0 +1,21 @@
+So collision detection. The idea is simple but in practice it takes time to accomplish.
+
+Lets start simple, shall we?
+Say we have a rectangular prism, with the width w and height h. create a sphere around it with 
+the 
+radius w/2. 
+
+Then say we have a cube, with the width and height of x, create a sphere around it with the 
+radius x/2. 
+
+How does this help us to do collision detection?
+Well, since the spheres cover all of the inner contents, and the radius is the same all way 
+around the sphere. We can easily check if collision has happened.
+
+define y as the radius of the sphere 1, and z as the radius of sphere 2. d is the distance 
+between the spheres.
+
+if z + y >= d, you have a collision.
+
+You can use rectangels also, any geometric primitive would do, but it is not as simple then.
+
