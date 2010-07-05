@@ -48,6 +48,8 @@
     (gl:translate 3 2 -60)
     (sdl:with-events ()
       (:quit-event () t)
+      (:key-down-event (:key key)
+       (when (sdl:key= key :sdl-key-escape) (sdl:push-quit-event)))
       (:idle ()
              (gl:clear :color-buffer-bit)
              (gl:color 1 1 1)
