@@ -25,6 +25,8 @@
 
 *** How
   - Get lispbuilder-sdl: =(asdf-install:install :lispbuilder-sdl)=
+  - Get cl-opengl: =(asdf-install:install :cl-opengl)=
+  - Get cl-glu: =(asdf-install:install :cl-glu)=
   - cd: =cd ~/lisp/=
   - Clone: =git clone git://github.com/nixeagle/HoW.git=
   - Clone nutils: =git clone git://github.com/nixeagle/nutils.git=
