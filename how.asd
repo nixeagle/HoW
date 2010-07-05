@@ -1,5 +1,5 @@
 (asdf:defsystem :how
-  :depends-on (:lispbuilder-sdl :nutils)
+  :depends-on (:lispbuilder-sdl :nutils :cl-opengl)
   :components
   ((:file "packages")
    (:file "init" :depends-on ("packages"))
